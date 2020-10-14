@@ -12,19 +12,14 @@ public class Guesser{
   private int high;
 
   /*
-   * Task 1. Write code here for a constructor
-   * which takes two int arguments and saves
-   * them in the instance variables low and high.
-   *
-   * If you don't remember the syntax for how to write
-   * constructors, revisit the chapter "Classes"
-   * and review the section about constructors.
-   *
+   * Constructor that takes 2 integers and assigns them to the member variables.
    */
+
+  public Guesser(int number1, int number2) {
+    this.low = number1;
+    this.high = number2;
+  }
   
-  // Write the constructor below this line.
-
-
   /*
    * Task 2. Complete the start() method, so that
    * in the method body, you call first the
