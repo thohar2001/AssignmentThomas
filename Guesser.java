@@ -21,13 +21,12 @@ public class Guesser{
   }
   
   /*
-   * Task 2. Complete the start() method, so that
-   * in the method body, you call first the
-   * rules() method, next the doGuesses() method.
-   */
+   * The start method calls the methods: rules() and doGuesses()
+   * */
+  
   public void start(){
-    // call the rules method here
-    // call the doGuesses() method here
+    rules();
+    doGuesses();
   }
 
   private void rules(){
