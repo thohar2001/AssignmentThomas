@@ -38,21 +38,18 @@ public class Guesser{
   }
 
   /*
-   * Task 3. Complete the code for the getReply() method.
-   * In the current version below, it returns null each
-   * call, which is not what this method is supposed to do.
-   * 
-   * Instead, change the method so that it reads a reply
-   * from the player, and if it is "T" or "F", we have
-   * a valid reply. Return the String that you read from
-   * the player.
+   * The getReply() method asks the user to enter "T" or "F". 
+   * If the user doesn't enter "T" or "F" it will ask the user again.
+   * The method only returns a String if it's equal to "T" or "F".
+   * toUpperCase() method is used on input so case doesn't matter.
    */
+
   private String getReply(){
-    String reply = null;
-    // Write code here which reads a String from the console.
-    // As long as it is not a valid reply (one of "T" and "F")
-    // write an error message, and read a new reply.
-    // When you have gotten a valid reply, return it.
+    String reply = System.console().readLine().toUpperCase();
+    while(!reply.equals("T") && !reply.equals("F")) {
+      System.out.println("Please answer T or F.");
+      reply = System.console().readLine().toUpperCase();
+    }
     return reply;
   }
 
