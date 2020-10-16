@@ -1,0 +1,40 @@
+Thomas Haraldsson 
+Jag siktar på VG.
+
+1. git add använder man för att lägga till sina modifierade eller nya filer i staging area,
+   där de väntar på att bli committade. git commit använder man sedan för att spara/commita sina ändringar man
+   lagt till i staging area i sitt lokala repository.
+
+2. git pull kan man använda om man t.ex. står i sitt lokala repository och man ser att det skett
+   några ändringar i en remote repository man jobbar mot för att uppdatera sitt lokala repository.
+ 
+   git push använder man för att ladda upp sina commits/ändringar till en remote repository på t.ex. Github. 
+
+3. git log använder man för att se alla commits som gjorts. Den visar även vem som commitat, 
+   när det commitades och visar en hashkod för varje commit. 
+   
+   git status kan man använda för att se vad som behöver läggas till i staging area, eller 
+   vad som ligger i staging area. Och om man ligger i fas med den repositoryn man jobbar mot.
+
+4. Helst ska man ge en kort och koncis förklaring på vilka ändringar man gjort och varför i sin commit. 
+   Både för att man ska kunna gå tillbaka senare och kolla vad och varför man gjorde en viss grej.
+   Jobbar man i ett grupprojekt är det väldigt viktigt för att de andra ska se när, vad och varför man gjorde ändringar.
+
+5. För att rulla tillbaka koden till ett tidigare tillstånd kan man använda t.ex. git revert och git reset. 
+   git revert är bra om man vill ångra en specifik commit. Skriver jag t.ex.: git revert da607b2 kommer jag att 
+   ta bort ändringarna jag gjorde i just den commiten. I mitt fall var det i den commiten jag skrev klart getReply() metoden
+   i Guesser.java. Jag gjorde en ny branch för att testa om det funkade och det gjorde det. Jag fick meddelandet:
+
+   [test df21194] Revert "getReply() method now asks user for input and returns a String if it equals T or F"
+   
+   Nu är getReply() metoden tillbaks till vad den var innan. Denna revert kan man se också om man skriver git log. 
+   
+   git reset är också väldigt effektiv, men man får vara lite mer försiktig med det kommandot. Den rullar tillbaka
+   alla ändringar man gjort efter en viss commit. Om jag skriver: git reset --hard da607b2 tar jag bort alla commits/ändringar
+   gjorda efter den commiten. Det kan vara bra om man vill ta bort alla ändringar man gjort efter en specifik commit.
+   
+   Jag gjorde en ny test branch och skrev: git reset --hard da607b2 och fick meddelandet:
+  
+   HEAD is now at da607b2 getReply() method now asks user for input and returns a String if it equals T or F
+   
+   Sedan var alla commits gjorda efter den här commiten borta. 
