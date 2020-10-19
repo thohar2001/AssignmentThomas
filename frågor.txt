@@ -29,12 +29,27 @@ Jag siktar på VG.
    
    Nu är getReply() metoden tillbaks till vad den var innan. Denna revert kan man se också om man skriver git log. 
    
-   git reset är också väldigt effektiv, men man får vara lite mer försiktig med det kommandot. Den rullar tillbaka
-   alla ändringar man gjort efter en viss commit. Om jag skriver: git reset --hard da607b2 tar jag bort alla commits/ändringar
+   git reset är också väldigt effektiv, men man får vara lite mer försiktig med det kommandot. Det kommandot kan rulla tillbaka
+   alla ändringar man gjort efter en viss commit. Man kan göra en soft, mixed och hard reset. 
+   
+   Först kan jag förklara hard reset. Om jag skriver: git reset --hard da607b2 tar jag bort alla commits/ändringar
    gjorda efter den commiten. Det kan vara bra om man vill ta bort alla ändringar man gjort efter en specifik commit.
    
    Jag gjorde en ny test branch och skrev: git reset --hard da607b2 och fick meddelandet:
   
    HEAD is now at da607b2 getReply() method now asks user for input and returns a String if it equals T or F
    
-   Sedan var alla commits gjorda efter den här commiten borta. 
+   Sedan var alla commits gjorda efter den här commiten borta. Inga ändringar i filer/koden har sparats.
+   
+   Det finns även något som kallas för soft reset. 
+   Skriver jag: git reset --soft da607b2 går jag tillbaks till den commiten. Nu pekar master/HEAD alltså på commiten da607b2 och senare commits är borta.
+   I staging area däremot så finns ändringarna man gjort efter den här commiten fortfarande kvar så du har inte förlorat någonting än. 
+   Alltså, inga filer försvinner eller ändras när du kör soft reset och de läggs sedan automatiskt till i staging area. 
+   Skriver jag nu t.ex. git commit -am "back to normal" så kan man säga att jag är tillbaka till där jag var innan jag gjorde en soft reset. 
+   Kan vara användbart om t.ex. man inser att de tre senaste commitsen hade kunnat kombineras till en commit, kanske för att förtydliga något eller liknande.
+   
+   Sedan finns även mixed reset, den är default för git reset commandot. Skillnaden mellan hard och mixed är att om man kör mixed reset kommer 
+   inte mixed reset påverka dina filer, precis som soft reset. Men skillnaden mot soft reset är att de inte läggs till i staging area per automatik.
+   Så man får göra git add på de filer man vill ha med i nästa commit.
+   
+   
