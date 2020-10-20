@@ -27,7 +27,8 @@ Jag siktar på VG.
 
    [test df21194] Revert "getReply() method now asks user for input and returns a String if it equals T or F"
    
-   Nu är getReply() metoden tillbaks till vad den var innan. Denna revert kan man se också om man skriver git log. 
+   Nu är getReply() metoden tillbaks till vad den var innan. Denna revert kan man se också om man skriver git log.
+   När man gör en revert gör man alltså en ny commit som "ångrar" en annan commit. 
    
    git reset är också väldigt effektiv, men man får vara lite mer försiktig med det kommandot. Det kommandot kan rulla tillbaka
    alla ändringar man gjort efter en viss commit. Man kan göra en soft, mixed och hard reset. 
